@@ -1,0 +1,10 @@
+{
+    "name" : "Excahnge Rates",
+    "version" : "1.0",
+    "mainifest_version":3,
+    "description":"Extension for converting currencies",
+    "actions" : {
+        "default_icon" : "icons.png",
+        "default_popup" : "index.html"
+    }
+}
