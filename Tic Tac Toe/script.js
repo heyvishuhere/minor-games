@@ -4,7 +4,7 @@ let newGameBtn = document.querySelector("#new-btn");
 let msg = document.querySelector("#msg");
 let msgContainer = document.querySelector(".msg-container");
 
-let turn0 = true;
+let turnO = true;
 const winPatterns =
 [
     [0, 1, 2],
@@ -20,7 +20,7 @@ const winPatterns =
 
 const resetGame = () =>
 {
-    turn0=true;
+    turnO=true;
     enableBoxes();
     msgContainer.classList.add("hide");
 }
@@ -28,18 +28,17 @@ boxes.forEach((box) =>
 {
     box.addEventListener("click",()=>
     {
-        if(turn0)
+        if(turnO)
         {
             box.innerText= 'O';
-            turn0=false;
+            turnO=false;
         }
         else
         {
             box.innerText='X';
-            turn0=true;
+            turnO=true;
         }
         box.disabled=true;
-
         checkWinner();
         checkDraw();
     })
@@ -48,7 +47,7 @@ boxes.forEach((box) =>
 const disableBoxes = () =>
 {
     for(let box of boxes)
-    {
+    { 
         box.disabled = true;
     }
 }
@@ -86,27 +85,27 @@ const checkWinner = ()=>
         }
     }
 }
-
-const checkDraw = () => {
-    let isDraw = true;
-    for (let pattern of winPatterns) {
-        let posVal1 = boxes[pattern[0]].innerText;
-        let posVal2 = boxes[pattern[1]].innerText;
-        let posVal3 = boxes[pattern[2]].innerText;
-
-        if (posVal1 != "" && posVal2 != "" && posVal3 != "") {
-            if (posVal1 === posVal2 && posVal2 === posVal3) {
-                isDraw = false;
-                break;
-            }
+const checkDraw = () =>
+{
+    let count = 0;
+    for(let box of boxes)
+    {
+        if(box.innerText!="")
+        {
+            count++;
+        }
+        if(count==9)
+        {
+            drawGame();
         }
     }
-    if (isDraw) 
-    {
-        msg.innerText = "It's a draw!";
-        msgContainer.classList.remove("hide");
-        disableBoxes();
-    }
+
+}
+const drawGame = () =>
+{
+    msg.innerText=`Match is draw. Play Again.`;
+    msgContainer.classList.remove("hide");
+    disableBoxes();
 }
 
 newGameBtn.addEventListener("click", resetGame);

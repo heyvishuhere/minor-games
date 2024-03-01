@@ -3,25 +3,26 @@ const currency = document.getElementById("currency");
 const convert = document.getElementById("convert");
 const result = document.getElementsByClassName("result");
 
-const apiKey = ""
-const apiUrl = "https://api.api-ninjas.com/v1/exchangerate?pair=INR"
+const apiKey = "w+8wtQTmX8Yo9X+c4V00Hw==aj06XIqsU4Yhttgw"
+const apiUrl = "https://api.api-ninjas.com/v1/exchangerate?pair=USD_EUR"
 
 convert.addEventListener("click", () => {
     const amountTotal = amount.value;
     const currencyTotal = currency.value;
     const url = apiUrl + currencyTotal;
+    console.log("Button clicked");
 
     fetch(url, {
         headers: {
-            'x-ApI-Key': apikey
+            'x-ApI-Key': 'w+8wtQTmX8Yo9X+c4V00Hw==aj06XIqsU4Yhttgw'
         }
     })
 
         .then(response => response.json())
         .then(data => {
-            const rate = data.rate;
-            const result = amountTotal * rate;
-            result.innerText = `${amount} ${currency} = ${result.toFixed(2)} INR`;
+            const rate = data.exchange_rate;
+            const resultPrice = amountTotal * rate;
+            result.innerText = `${amount} ${currency} = ${resultPrice.toFixed(2)} INR`;
         })
 
         .catch(error => {

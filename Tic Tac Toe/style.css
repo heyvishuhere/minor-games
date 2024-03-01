@@ -71,3 +71,8 @@ body
 {
     display: none;
 }
+hr
+{
+    width: 80%;
+    height: 60vmin;
+}
