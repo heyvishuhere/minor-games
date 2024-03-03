@@ -1,0 +1,11 @@
+{
+    "name" : "Remind Me",
+    "vesion" : "1.0.0",
+    "manifest_version" : 3,
+    "description" : "A extension for reminding tasks to do in that day",
+    "action" : 
+    {
+        "default_icon" : "",
+        "default_popup" : "index.html"
+    }
+}
