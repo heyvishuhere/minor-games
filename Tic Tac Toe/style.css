@@ -13,6 +13,7 @@ body
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
 
 }
 .game
@@ -35,6 +36,15 @@ body
     font-size: 8vmin;
     color: #b0413e;
     background-color: #ffffc7;
+}
+.line
+{
+    display: none;
+    height: 5px;
+    width: 60vmin;
+    background-color: black;
+    position: absolute;
+    border-radius: 2px;
 }
 #reset-button
 {
