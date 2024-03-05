@@ -1,44 +1,36 @@
-let textEnter = document.querySelector("#to-do");
-let timeEnter = document.querySelector("#limit");
-let taskEnter = document.querySelector("#click");
-let listofTask = document.querySelector("#task");
-let listofTime = document.querySelector("#list-time");
+let inputText = document.querySelector("#work");
+let inputTime = document.querySelector("#userTime");
+let addTask = document.querySelector("#task");
+let clickBtn = document.querySelector("#click");
+let msg = document.querySelector("#time");
 
-const currentTime = () =>
-{
-    let d = new Date();
-    let hours = d.getHours();
-    let minutes = d.getMinutes();
-    let formatTime = hours + ':' + minutes ;
-    return formatTime; 
-}
 
-let time = currentTime();
-
-const  addTask = (textEnter) =>
-{
+const inputTask = () => {
     let listItem = document.createElement("li");
-    listItem.textContent = textEnter ;
-    listofTask.appendChild(listItem);
+    listItem.textContent = inputTime.value;
+    addTask.appendChild(listItem);
+    return {timeValue : inputTime.value};
 }
-const  addTime = (timeEnter) =>
+function updateLiveTime()
 {
-    let listItem = document.createElement("li");
-    listItem.textContent = timeEnter ;
-    listofTask.appendChild(listItem);
+    const d = new Date();
+    const hour = d.getHours();
+    const minute = d.getMinutes();
+    const second = d.getSeconds();
+    var formatTime = `${hour < 10 ? '0' : ''}${hour}:${minute < 10 ? '0' : ''}${minute}`;
+    msg.innerText = formatTime;
+    checkTime();
 }
-
-taskEnter.addEventListener("click", ()=>
+setInterval(updateLiveTime,1000);
+const checkTime = ()=>
 {
-    addTask(textEnter.value);
-    addTime(timeEnter.value);
-    // checkTime(timeEnter.value,currentTime());
-})
-
-const checkTime = (timeEnter,time) =>
-{
-    if(timeEnter.value === time)
-    {
-        alert("Time is up");
+    const { timeValue } = inputTask();
+    if (timeValue === msg.innerText) {
+        alert(`Time is Up for task:`);
     }
 }
+clickBtn.addEventListener("click", () => {
+    // console.log("Hello World");
+    // console.log(inputTask());
+    // checkTime();
+})
