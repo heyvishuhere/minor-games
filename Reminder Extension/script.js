@@ -19,7 +19,7 @@ function updateLiveTime()
     const second = d.getSeconds();
     var formatTime = `${hour < 10 ? '0' : ''}${hour}:${minute < 10 ? '0' : ''}${minute}`;
     msg.innerText = formatTime;
-    checkTime();
+    // checkTime();
 }
 setInterval(updateLiveTime,1000);
 const checkTime = ()=>

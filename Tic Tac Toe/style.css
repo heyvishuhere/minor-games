@@ -37,7 +37,7 @@ body
     color: #b0413e;
     background-color: #ffffc7;
 }
-.line
+/* .line
 {
     display: none;
     height: 5px;
@@ -45,7 +45,7 @@ body
     background-color: black;
     position: absolute;
     border-radius: 2px;
-}
+} */
 #reset-button
 {
     padding: 1rem;
@@ -80,9 +80,4 @@ body
 .hide
 {
     display: none;
-}
-hr
-{
-    width: 80%;
-    height: 60vmin;
 }
