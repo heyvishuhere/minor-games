@@ -8,7 +8,7 @@ Array.from(button).forEach((button)=>
     {
         if(e.target.innerText== "AC")
         {
-            string = "";
+            string = "0";
             result.value=string;
         }
         else if (e.target.innerText == "="){
